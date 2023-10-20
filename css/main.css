@@ -201,4 +201,84 @@ footer .container {
 .socials {
   display: flex;
   gap: 32px;
+}
+
+@media (width > 850px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+@media (width <= 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .container {
+    padding: 0 15px;
+  }
+  header {
+    overflow: hidden;
+  }
+  header nav {
+    flex-direction: column;
+    gap: 8px;
+    background-color: rgba(0, 0, 0, 0.8705882353);
+    padding: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    pointer-events: none;
+  }
+  header nav.opened {
+    opacity: 1;
+    pointer-events: all;
+  }
+  main {
+    margin-top: 60px;
+  }
+  h1 {
+    font-size: 48px;
+    line-height: 66px;
+  }
+  .container h2 {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+  .container .movie-about {
+    width: unset;
+    margin-top: 28px;
+    margin-bottom: 38px;
+    line-height: 22px;
+    font-size: 14px;
+  }
+  .container .movie-about p:first-child {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+  .container .movie-about a {
+    line-height: 22px;
+  }
+  .movie-tags {
+    gap: 20px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .link-button.small {
+    width: 100px;
+    height: 26px;
+    font-size: 12px;
+  }
+  .link-button.medium {
+    font-size: 18px;
+    width: 180px;
+    height: 40px;
+  }
+  .link-button.big {
+    width: 210px;
+    height: 44px;
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=main.css.map */
