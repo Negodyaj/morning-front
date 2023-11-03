@@ -17,7 +17,7 @@
   <header>
     <div class="container flex-between">
       <a href="/"><img src="./images/hero-header-logo.svg" alt=""></a>
-      <nav>
+      <nav onclick="event.stopPropagation()">
         <a href="#" class="nav-link">Who is Batman?</a>
         <a href="#" class="nav-link">Photos</a>
         <a href="#" class="nav-link">Casts</a>
@@ -25,7 +25,7 @@
         <a href="#" class="nav-link">DC Comics</a>
         <a href="#" class="link-button medium">Watch Series</a>
       </nav>
-      <button class="mobile-only">burger</button>
+      <button class="mobile-only" onclick="handleBurgerMenuClick(event)">burger</button>
     </div>
   </header>
   <main>
@@ -49,7 +49,11 @@
         </p>
       </div>
       <a href="#" class="link-button big">Watch Series</a>
-      <div class="movie-cards flex-between">
+      <div class="carousel">
+        <div class="movie-cards">
+        </div>
+        <button class="carousel-btn left" onclick="showPrevSlide()">left</button>
+        <button class="carousel-btn right" onclick="showNextSlide()">right</button>
       </div>
     </div>
   </main>

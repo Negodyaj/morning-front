@@ -25,7 +25,25 @@ const movies = [
     watchLink: 'https://google.com',
     detailsLink: 'https://ya.ru',
     imageUrl: './images/movie3.png',
-  }
+  },
+  {
+    name: 'Batman Begins 2',
+    imdb: 8.2,
+    tags: ['action', 'adventure'],
+    description: `Batman Begins explores the origins of the Batman legend and the Dark Knight's emergence as a force...`,
+    watchLink: 'https://google.com',
+    detailsLink: 'https://ya.ru',
+    imageUrl: './images/movie1.png',
+  },
+  {
+    name: 'The Dark Knight 2',
+    imdb: 9.0,
+    tags: ['action', 'crime', 'drama'],
+    description: `Christian Bale and director Christopher Nolan reunite following their blockbuster success with...`,
+    watchLink: 'https://google.com',
+    detailsLink: 'https://ya.ru',
+    imageUrl: './images/movie2.png',
+  },
 ];
 
 console.log(movies);
@@ -60,6 +78,50 @@ for (const movie of movies) {
 
 // DOM = document object model
 const nav = document.querySelector('header nav');
-nav.classList.toggle('opened');
+const burgerButton = document.querySelector('header button');
 
-setTimeout(() => nav.classList.toggle('opened'), 3000);
+function handleBurgerMenuClick(event) {
+  nav.classList.toggle('opened');
+  burgerButton.classList.add('hidden');
+  event.stopPropagation();
+  console.log('button clicked');
+}
+
+function closeBurgerMenu() {
+  if (nav.classList.contains('opened')) {
+    nav.classList.remove('opened');
+    burgerButton.classList.remove('hidden');
+    console.log('class removed');
+  }
+  console.log('body clicked');
+}
+
+document.body.onclick = closeBurgerMenu;
+
+const firstMovie = moviesContainer.children[0];
+let currentLeftMargin = 0;
+let counter = 0;
+const gap = 32;
+const cardSize = firstMovie.clientWidth;
+
+const maxCounter = document.body.clientWidth <= 850 ? 4 : 2;
+
+console.log(firstMovie);
+
+function showPrevSlide() {
+  if (currentLeftMargin === 0) return;
+
+  currentLeftMargin += (gap + cardSize);
+  firstMovie.style.marginLeft = `${currentLeftMargin}px`;
+  counter--;
+  console.log('left button clicked');
+}
+
+function showNextSlide() {
+  if (counter === maxCounter) return;
+
+  currentLeftMargin -= (gap + cardSize);
+  firstMovie.style.marginLeft = `${currentLeftMargin}px`;
+  counter++;
+  console.log('right button clicked');
+}

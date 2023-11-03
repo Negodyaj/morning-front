@@ -39,6 +39,10 @@ body {
   justify-content: space-between;
 }
 
+.hidden {
+  opacity: 0;
+}
+
 header {
   .nav-link {
     color: white;
@@ -145,8 +149,29 @@ h1 {
   }
 }
 
+.carousel {
+  position: relative;
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &.left {
+      left: -16px;
+    }
+
+    &.right {
+      right: -16px;
+    }
+  }
+}
+
 .movie-cards {
+  display: flex;
   margin-top: 55px;
+  gap: 32px;
+  overflow: hidden;
 
   .movie-card {
     width: 392px;
@@ -155,6 +180,8 @@ h1 {
     border: 1px solid #383838;
     display: flex;
     overflow: hidden;
+    flex-shrink: 0;
+    transition: margin-left .5s ease;
   }
 
   .card-content {
