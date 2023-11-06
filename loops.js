@@ -6,6 +6,7 @@
 
 let a = 10;
 a = a - 5;
+a = 'hi';
 
 const rnd1 = Math.random(); //  0 .. 0.9999999
 let cardLimit = Math.round(rnd1 * 10000)  // 0 .. 10000

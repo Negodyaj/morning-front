@@ -103,25 +103,26 @@ let currentLeftMargin = 0;
 let counter = 0;
 const gap = 32;
 const cardSize = firstMovie.clientWidth;
+const leftMarginValue = `-${gap + cardSize}px`;
 
 const maxCounter = document.body.clientWidth <= 850 ? 4 : 2;
 
 console.log(firstMovie);
 
 function showPrevSlide() {
-  if (currentLeftMargin === 0) return;
-
-  currentLeftMargin += (gap + cardSize);
-  firstMovie.style.marginLeft = `${currentLeftMargin}px`;
-  counter--;
-  console.log('left button clicked');
+  const lastCard = moviesContainer.children[moviesContainer.children.length - 1];
+  lastCard.style.marginLeft = leftMarginValue;
+  moviesContainer.prepend(lastCard);
+  setTimeout(() => {
+    lastCard.style.marginLeft = '0px';
+  }, 0);
 }
 
 function showNextSlide() {
-  if (counter === maxCounter) return;
-
-  currentLeftMargin -= (gap + cardSize);
-  firstMovie.style.marginLeft = `${currentLeftMargin}px`;
-  counter++;
-  console.log('right button clicked');
+  const firstCard = moviesContainer.children[0];
+  firstCard.style.marginLeft = leftMarginValue;
+  setTimeout(() => {
+    moviesContainer.appendChild(firstCard);
+    firstCard.style.marginLeft = '0px';
+  }, 500);
 }
